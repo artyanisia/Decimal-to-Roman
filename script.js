@@ -19,7 +19,7 @@ window.addEventListener("load", (event) => {
         const romanNumber= document.getElementById('romanNumber').value.trim();
         const outputRoman = document.getElementById('outputRoman');
 
-        if(/^[A-Z]+$/.test(romanNumber)){
+        if(/^[MDCLXVI]+$/.test(romanNumber)){
             let sum = 0;
             for(let i = 0; i < romanNumber.length; i++){
                 if(values[romanNumber[i]]<values[romanNumber[i+1]]){
@@ -42,17 +42,7 @@ window.addEventListener("load", (event) => {
 
     function convertDecimalNumber(){
 		
-		var counter  = {
-			'1000': '',
-			'500': '',
-			'100': '',
-			'50': '',
-			'10': '',
-			'5': '',
-			'1': ''
-		}
-		
-		var counter2 = new Map(
+		var counter = new Map(
 			[
 				[1000, 0],
 				[500, 0],
@@ -76,41 +66,36 @@ window.addEventListener("load", (event) => {
 		]);
 
         let decimalNumber= document.getElementById('decimalNumber').value.trim();
-        let outputDecimal = document.getElementById('outputDecimal');
 		let outputDecimalRefactor = document.getElementById('outputDecimalRefactor');
 		
         if(/^\d+$/.test(decimalNumber)){
 
-            let string = [];
 			let convertedNumber = [];
-            let items = Object.entries(values).reverse();
-            let sum = decimalNumber;
+            let romanValues = Object.entries(values).reverse();
             let count;
             function intCalc(number, mult){
                 return Math.floor(number/mult);
             }
-            while(sum > 0){
-                for(let [key,val] of items){
-                    if(val <= sum){
-                        count = intCalc(sum,val);
-                        sum -= val * count;
-                        counter[val] = count;
-						counter2.set(val, count);
+            while(decimalNumber > 0){
+                for(let [,decimalValue] of romanValues){
+                    if(decimalValue <= decimalNumber){
+                        count = intCalc(decimalNumber,decimalValue);
+                        decimalNumber -= decimalValue * count;
+						counter.set(decimalValue, count);
                     }
                 }
             }
 
-
 			for (let i = 0; i < romanDigitValues.length; i++)
 			{
 				currentValue = romanDigitValues[i];
-				count = counter2.get(currentValue);				
+				count = counter.get(currentValue);				
                 if(count == 4){
 					// if a roman digit appears 4 times and the next roman digit appears once we need to insert the digit after the next one (4*1 + 5 = 9 => IX, not VIIII)
-                    if(count == 4 && counter2.get(romanDigitValues[i+1]) == 1){
+                    if(count == 4 && counter.get(romanDigitValues[i+1]) == 1){
 						var valueToAdd = romanDigitValues[i+2];
                         convertedNumber  = [digitsToRomanDigits.get(currentValue) , digitsToRomanDigits.get(valueToAdd) , ...convertedNumber];						
-                        counter2.set(romanDigitValues[i+1],0);
+                        counter.set(romanDigitValues[i+1],0);
 						continue;
                     }                    
 					var valueToAdd = romanDigitValues[i+1];
@@ -125,34 +110,6 @@ window.addEventListener("load", (event) => {
 			};
 			
 			outputDecimalRefactor.textContent = convertedNumber.join('');
-			
-			let item = Object.entries(counter);
-            items = Object.entries(values);
-			
-			
-            for(let i = 0; i < item.length; i++){
-                let val = item[i][1];
-                if(val == 4){
-                    if(item[i][1] == 4 && item[i+1][1] == 1){
-                        string.unshift(items[i+2][0]);
-                        string.unshift(items[i][0]);
-                        item[i+1][1]=0;
-                    }
-                    else{
-                        string.unshift(items[i+1][0]);
-                        string.unshift(items[i][0]);
-                        
-                    }
-                    
-                }
-                else{
-                    while(val){
-                        string.unshift(items[i][0]);
-                        val--;
-                    }
-                }
-            }
-            outputDecimal.textContent = string.join('');
         }
         else{
             outputDecimal.textContent = 'Please write a valid number (only digits allowed)';
