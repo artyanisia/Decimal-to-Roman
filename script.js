@@ -111,20 +111,17 @@ window.addEventListener("load", (event) => {
 						var valueToAdd = romanDigitValues[i+2];
                         convertedNumber  = [digitsToRomanDigits.get(currentValue) , digitsToRomanDigits.get(valueToAdd) , ...convertedNumber];						
                         counter2.set(romanDigitValues[i+1],0);
-                    }
-                    else{
-						var valueToAdd = romanDigitValues[i+1];
-                        convertedNumber = [digitsToRomanDigits.get(valueToAdd), ...convertedNumber];
-                        convertedNumber = [digitsToRomanDigits.get(currentValue), ...convertedNumber];                        
-                    }
-                    
-                }
-                else{
-                    while(count){
-                        convertedNumber = [digitsToRomanDigits.get(currentValue), ...convertedNumber];
-                        count--;
-                    }
-                }
+						continue;
+                    }                    
+					var valueToAdd = romanDigitValues[i+1];
+					convertedNumber = [digitsToRomanDigits.get(valueToAdd), ...convertedNumber];
+					convertedNumber = [digitsToRomanDigits.get(currentValue), ...convertedNumber];
+					continue;
+                }                
+				while(count){
+					convertedNumber = [digitsToRomanDigits.get(currentValue), ...convertedNumber];
+					count--;
+				}                
 			};
 			
 			outputDecimalRefactor.textContent = convertedNumber.join('');
