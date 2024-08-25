@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,26 +7,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Roman Numerals Converter</title>
-    <script src="script.js" defer></script> 
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header>
-        <div id = "logo">
-            Roman Numerals Converter
+    <div id="header">
+        <div>
+            <div id = "logo">
+                <p>Roman Numerals Converter</p>
+            </div>
+                <i id="icon" class="fa fa-heart"></i>
         </div>
+    </div>
+    <div id="wrapper">
+        <nav>
+            <a href="#header">Top</a>
+            <a href="#conver-section">Converter</a>
+            <a href="#footer">Footer</a>
+        </nav>
+        <div id="conver-section">
+            <div class="title">
+                <h1>The converter</h1>
+                <p>Enter the Roman numeral or number and press the <i>Convert</i> button.</p>
+            </div>
+            <div id="converter">
+                <div class="form-group-row">
+                    <label for = "romanNumber" class="label-group">Roman number</label>
+                    <div class="input-group">
+                        <input class="searchbar" type="text" id="romanNumber" name="romanNumber">
+                        <button class="convert-button" id="convertRoman">Convert</button>
+                    </div>
+                </div>
+                <div class="form-group-row">
+                    <label for = "decimalNumber"  class="label-group">Decimal number</label>
+                    <div class="input-group">
+                        <input class="searchbar" type="text" id = "decimalNumber" name="decimalNumber">
+                        <button class="convert-button" id="convertDecimal">Convert</button>
+                    </div>
+                </div>
+                <div class="form-group-row">
+                    <label for = "decimalNumber"  class="label-group">Result</label>
+                    <div id="textarea">
+                        <div id="outputRoman"></div>
+                        <div id="outputDecimalRefactor"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2>Roman numerals conversion table</h2>
+        <table class="dtable">
+            <tbody>
+                <tr>
+                    <th>Number</th>
+                    <th>Roman numeral</th>
+                    <th>Calculation</th>
+                </tr>
+                <tr style="background: #f8f8f0"><td>1</td><td>I</td><td>1</td></tr>
+                <tr><td>2</td><td>II</td><td>1+1</td></tr>
+                <tr><td>3</td><td>III</td><td>1+1+1</td></tr>
+                <tr><td>4</td><td>IV</td><td>5-1</td></tr>
+                <tr style="background: #f8f8f0"><td>5</td><td>V</td><td>5</td></tr>
+                <tr><td>5</td><td>V</td><td>5</td></tr>
+                <tr><td>6</td><td>VI</td><td>5+1</td></tr>
+                <tr><td>7</td><td>VII</td><td>5+1+1</td></tr>
+                <tr><td>8</td><td>VIII</td><td>5+1+1+1</td></tr>
+                <tr><td>9</td><td>IX</td><td>10-1</td></tr>
+                <tr style="background: #f8f8f0"><td>10</td><td>X</td><td>10</td></tr>
+                <tr><td>11</td><td>XI</td><td>10+1</td></tr>
+                <tr><td>12</td><td>XII</td><td>10+1+1</td></tr>
+                <tr><td>13</td><td>XIII</td><td>10+1+1+1</td></tr>
+                <tr><td>14</td><td>XIV</td><td>15-1</td></tr>
+                <tr style="background: #f8f8f0"><td>15</td><td>XV</td><td>10+5</td></tr>
+                <tr><td>16</td><td>XVI</td><td>10+5+1</td></tr>
+                <tr><td>17</td><td>XVII</td><td>10+5+1+1</td></tr>
+                <tr><td>18</td><td>XVIII</td><td>10+5+1+1+1</td></tr>
+                <tr><td>19</td><td>XIX</td><td>20-1</td></tr>
+                <tr style="background: #f8f8f0"><td>20</td><td>XX</td><td>10+10</td></tr>
+                <tr><td>21</td><td>XXI</td><td>10+10+1</td></tr>
+                <tr><td>22</td><td>XXII</td><td>10+10+1+1</td></tr>
+                <tr><td>23</td><td>XXIII</td><td>10+10+1+1+1</td></tr>
+                <tr><td>24</td><td>XXIV</td><td>25-1</td></tr>
+                <tr style="background: #f8f8f0"><td>25</td><td>XXV</td><td>10+10+5</td></tr>
+                <tr><td>26</td><td>XXVI</td><td>10+10+5+1</td></tr>
+                <tr><td>27</td><td>XXVII</td><td>10+10+5+1+1</td></tr>
+                <tr><td>28</td><td>XXVIII</td><td>10+10+5+1+1+1</td></tr>
+                <tr><td>29</td><td>XXIX</td><td>30-1</td></tr>
+                <tr style="background: #f8f8f0"><td>30</td><td>XXX</td><td>10+10+10</td></tr>
+                <tr><td>31</td><td>XXXI</td><td>10+10+10+1</td></tr>
+                <tr><td>32</td><td>XXXII</td><td>10+10+10+1+1</td></tr>
+                <tr><td>33</td><td>XXXIII</td><td>10+10+10+1+1+1</td></tr>
+                <tr><td>34</td><td>XXXIV</td><td>35-1</td></tr>
+                <tr style="background: #f8f8f0"><td>35</td><td>XXXV</td><td>10+10+10+5</td></tr>
+                <tr><td>36</td><td>XXXVI</td><td>10+10+10+5+1</td></tr>
+                <tr><td>37</td><td>XXXVII</td><td>10+10+10+5+1+1</td></tr>
+                <tr><td>38</td><td>XXXVIII</td><td>10+10+10+5+1+1+1</td></tr>
+                <tr><td>39</td><td>XXXIX</td><td>40-1</td></tr>
+                <tr style="background: #f8f8f0"><td>40</td><td>XL</td><td>50-10</td></tr>
+                <tr><td>41</td><td>XLI</td><td>50-10+1</td></tr>
+                <tr><td>42</td><td>XLII</td><td>50-10+1+1</td></tr>
+                <tr><td>43</td><td>XLIII</td><td>50-10+1+1+1</td></tr>
+                <tr><td>44</td><td>XLIV</td><td>50-10-1</td></tr>
+                <tr style="background: #f8f8f0"><td>45</td><td>XLV</td><td>50-10+5</td></tr>
+                <tr><td>46</td><td>XLVI</td><td>50-10+5+1</td></tr>
+                <tr><td>47</td><td>XLVII</td><td>50-10+5+1+1</td></tr>
+                <tr><td>48</td><td>XLVIII</td><td>50-10+5+1+1+1</td></tr>
+                <tr><td>49</td><td>XLIX</td><td>50-10-1</td></tr>
+                <tr style="background: #f8f8f0"><td>50</td><td>L</td><td>50</td></tr>
+                <tr><td>51</td><td>LI</td><td>50+1</td></tr>
+                <tr><td>52</td><td>LII</td><td>50+1+1</td></tr>
+                <tr><td>53</td><td>LIII</td><td>50+1+1+1</td></tr>
+                <tr><td>54</td><td>LIV</td><td>50+5-1</td></tr>
+                <tr style="background: #f8f8f0"><td>55</td><td>LV</td><td>50+5</td></tr>
+                <tr><td>56</td><td>LVI</td><td>50+5+1</td></tr>
+                <tr><td>57</td><td>LVII</td><td>50+5+1+1</td></tr>
+                <tr><td>58</td><td>LVIII</td><td>50+5+1+1+1</td></tr>
+                <tr><td>59</td><td>LIX</td><td>50+10-1</td></tr>
+                <tr style="background: #f8f8f0"><td>60</td><td>LX</td><td>50+10</td></tr>
+            </tbody>
+        </table>
 
-    </header>
-    <label for = "romanNumber">Roman number</label>
-    <input type="text" id="romanNumber" name="romanNumber">
-    <button id="convertRoman">Convert</button><br>
 
-    <label for = "decimalNumber">Decimal number</label>
-    <input type="text" id = "decimalNumber" name="decimalNumber">
-    <button id="convertDecimal">Convert</button><br>
-    
-    <p id="outputRoman"></p><br>
-    <p id="outputDecimal"></p>
-	<p id="outputDecimalRefactor"></P>
+    </div>
+    <div id="footer">
+        <div>
+            <a href="#header">Top</a>
+            <a href="#conver-section">Converter</a>
+            <a href="#footer">Footer</a>
+        </div>
+    </div>
 </body>
 </html>
+
+
+

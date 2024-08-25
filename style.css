@@ -1,27 +1,269 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1rem;
     font-weight: 400;
     color: #212529;
     background-color: #fff;
     margin: 0;
+    min-width: 300px;
 }
-  
-header {
+ 
+#header {
     background: #f0f0d0;
     width: 100%;
-    margin: 0 auto;
-    padding: 0;
-    height: 10vh;
-    color: rgb(33, 37, 41);
 }
 
-#logo {
+
+#logo{
     margin-left: 5px;
-    font-size: 2rem;
+}
+
+
+#header p{
+    line-height: 1;
+    font-size: x-large;
+    font-weight: 700;
+    color: #444;
+}
+
+
+#icon{
+    display: flex;
+    margin-left: auto;
+    margin-right: 100px;
+    color: #444;
+    padding: 0 20px;
+    font-size: large;
+}
+
+
+#header>div{
+    display: flex;
+    align-items: center;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+@media only screen and (max-width: 700px) {
+    #header>div{
+       max-width: max-content;
+       padding: 0;
+    }
+    #logo p{
+        font-size: medium;
+    }
+}
+
+
+#wrapper{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 5px 20px;
+}
+
+
+nav{
+    color: #000;
+    clear: left;
+    border-bottom: 1px #ddd solid;
+    padding: 6px 0;
+}
+
+
+a {
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    margin-right: 10px;
+    color: #212529;
+}
+
+
+a:hover {
+    color: #cccc0d;            
+}
+
+
+h1{
+    color: #333;
+    padding: 0;
+    font-size: 1.55rem;
+    font-weight: 400;
+    text-align: left;
+    margin: 0 0 .5rem 0;
+}
+
+
+#title p{
+    margin: 2px 0px;
+    line-height: 1.8;
+}
+
+
+#converter {
+    padding: 15px;
+    background: #eee8d5;
+    border: 1px solid #eee;
+    border-radius: 7px;
+    max-width: 600px;
+    min-width: 300px;
+}
+
+
+.form-group-row{
+    display: grid;
+    margin-bottom: 1rem;
+    grid-template-columns: 120px 1fr;
+    width: 100%;
+}
+
+
+.label-group{
+    padding-top: calc(.375rem + 1px);
+    padding-bottom: calc(.375rem + 1px);
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+
+.input-group{
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
+
+
+.searchbar{
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+
+.convert-button{
+    text-align: center;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    color: #fff;
+    background-color: #28a745;
+}
+
+
+#textarea{
+
+
+    width: 95%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    margin: 0;
+}
+
+
+@media only screen and (max-width: 700px) {
+    #converter{
+        max-width: max-content;
+    }
+}
+
+
+h2{
+    line-height: 1.8;
+    font-size: 1.4rem;
+    margin: 0 0 .5rem 0;
+    font-weight: 500;
+    letter-spacing: 0;
+    padding: 0;
+}
+
+
+table{
+    border-spacing: 2px;
+}
+
+
+table.dtable{
+    border: 1px #ccc solid;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+
+th{
+    background-color: #e0e0e0;
+    border: 1px #ccc solid;
+    font-size: normal;
+    text-align: center;
+    padding: 5px;
+    font-weight: 400;
+    display: table-cell;
+    top: 0;
+    height: 6vw;
+    position: sticky;
+}
+
+
+td {
+    display: table-cell;
+    border: 1px #ccc solid;
+    border-color: #e0e0e0;
+    text-align: center;
+    width: 120px;
+    font-size: medium;
+    padding: 0 5px;
+}
+
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border: 1px #ccc solid;
+    border-color: #e0e0e0;
     text-align: left;
 }
 
-div {
-    
+
+#footer{
+    padding: 30px;
+    background: #eee;
+    font-size: large;
+    border-top: 1px solid #ddd;
+}
+
+
+#footer div{
+    display: flex;
+    justify-content: center;
+}
+
+
+#footer p{
+    margin: 0 10px;
+}
+
+
+@media (max-width: 768px) {
+    footer {
+        padding: 8px;
+        font-size: 12px;
+    }
 }
