@@ -32,6 +32,8 @@ window.addEventListener("load", (event) => {
                 }
                 else sum += values[romanNumber[i]];
             }
+            decimalNumber.value = '';
+            outputDecimal.textContent= '';
             outputRoman.textContent = `${sum}`;
         }
         else if(/^[a-z]+$/.test(romanNumber))
@@ -73,8 +75,10 @@ window.addEventListener("load", (event) => {
 
 
         let decimalNumber= document.getElementById('decimalNumber').value.trim();
-        let outputDecimalRefactor = document.getElementById('outputDecimalRefactor');
+        let outputDecimal = document.getElementById('outputDecimal');
        
+        
+
         if(/^\d+$/.test(decimalNumber)){
 
 
@@ -117,8 +121,9 @@ window.addEventListener("load", (event) => {
                     count--;
                 }                
             };
-           
-            outputDecimalRefactor.textContent = convertedNumber.join('');
+            romanNumber.value = '';
+            outputRoman.textContent = '';
+            outputDecimal.textContent = convertedNumber.join('');
         }
         else{
             outputDecimal.textContent = 'Please write a valid number (only digits allowed)';

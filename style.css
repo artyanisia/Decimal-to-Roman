@@ -201,7 +201,7 @@ table{
 }
 
 
-table.dtable{
+table#dtable{
     border: 1px #ccc solid;
     border-collapse: collapse;
     padding: 5px;
